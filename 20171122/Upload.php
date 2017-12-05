@@ -37,7 +37,6 @@ function CheckUploadImageType(&$file_array){
 
 extract($_POST);
 $file_array = ArrangeFileArray($_FILES["image_uploads"]);
-AddFileToDirectory($file_array);
 ?>
 
 <!DOCTYPE html>
@@ -111,6 +110,7 @@ AddFileToDirectory($file_array);
                         echo '<p>Wrong File Type</p>';
                     }
                     else{
+                        AddFileToDirectory($file_array);
                         foreach ($file_array as $file) {
                             echo '<img src="./upload/'.$file["name"].'">';
                         }
